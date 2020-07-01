@@ -1,0 +1,77 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card card-outline-primary">
+            <div class="card-header">
+                <h4 class="m-b-0 text-white">Add Category</h4>
+            </div>
+            <div class="card-body">
+                <form id="addCategory" enctype="multipart/form-data" action="/category/add" method="POST">
+                    <div class="form-body">
+                        <h3 class="card-title m-t-15">Category Info</h3>
+                        <hr>
+                        <div class="row p-t-20">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Title</label>
+                                    <input type="text" name="name" id="name" class="form-control" placeholder="Category Name">
+                                    <small class="form-control-feedback"> this is category name </small> </div>
+                            </div>
+                            <!--/span-->
+                            <div class="col-md-6">
+                                <div class="form-group has-danger">
+                                    <label class="control-label">Slug</label>
+                                    <input type="text" name="slug" id="slug" class="form-control form-control-danger" placeholder="Slug">
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <!--/row-->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group has-success">
+                                    <label class="control-label">Parent</label>
+                                    <select class="form-control custom-select" name="parent_id" id="parent_id">
+                                        <option value="0">-Select Parent Category-</option>
+                                        <option value="">Male</option>
+                                        <option value="">Female</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!--/span-->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Image</label>
+                                    <input type="file" name="image" class="form-control">
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <!--/row-->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Description</label>
+                                    <textarea class="form-control" name="description" id="description" rows="3" placeholder="Description"></textarea>
+                                </div>
+                            </div>
+                            <!--/span-->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                   &nbsp;
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <!--/row-->
+                  
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
+                        <button type="button" class="btn btn-inverse">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
