@@ -1,0 +1,61 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Products List</h4>
+                <h6 class="card-subtitle">Data table example</h6>
+                <span style="float: right;"><a href="/product/add">Add New</a></span>
+                <div class="table-responsive m-t-40">                    
+                    <table id="myTable" class="table table-bordered table-striped users-table">
+                        <thead>
+                            <tr>
+                              <th>Name</th>
+                              <th>Category</th>
+                              <th>Slug</th>
+                              <th>Description</th>
+                              <th>Created</th>
+                              <th>action</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                        <% products.forEach(function(row){ %>
+                        
+                            <tr>
+                            <th><%= row.name %></th>
+                            <th><%= row.Category.name %></th>
+                            <th><%= row.slug %></th>
+                            <th><%= row.description %></th>
+                            <th><img src="/images/product/<%= row.image %>" style="width: 100px;height: 100px;"></img></th>
+                            <th><a href="/product/edit/<%= row.id %>">edit</a><a href="/product/delete/<%= row.id %>">delete</a></th>
+                            </tr>
+                        <% }) %>
+                          </tbody>
+                    </table>
+                    
+                </div>
+                
+            </div>
+            
+        </div>
+        <%if (pages > 1) { %>
+            <nav style="float: right;">
+            <ul class="pagination pagination-gap">
+              <li class="disabled page-item">
+                <a class="page-link" href="?page=<%= currentPage - 1%>" aria-label="Previous">
+                  <span aria-hidden="true">«</span>
+                </a>
+              </li>
+              <% for(var i=1; i <= pages; i++) { %>
+              <li class="<%= (currentPage == i) ? 'active' : '' %> page-item"><a class="page-link" href="<%= (currentPage == i) ? 'javascript:void(0)' : '?page='+i %>"><%= i%> </a></li>
+              <% } %>
+              <li class="page-item">
+                <a class="page-link" href="?page=<%= currentPage + 1%>" aria-label="Next">
+                  <span aria-hidden="true">»</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        <% } %>
+  </div>
+</div>
+

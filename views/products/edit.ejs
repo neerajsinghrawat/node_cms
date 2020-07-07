@@ -1,0 +1,52 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">products List</h4>
+                <h6 class="card-subtitle">Data table example</h6>
+                <span style="float: right;"><a href="/product/add">Add New</a></span>
+                <div class="table-responsive m-t-40">                    
+                    <form action="/product/update/<%= products.id %>" method="POST" enctype="multipart/form-data">
+                            <div class="form-group"> 
+                                <label>name</label>
+                                <input type="text" name="name" class="form-control" placeholder="Email"   value="<%= products.name %>">
+                                <input type="hidden" name="id" value="<%= products.id %>">
+                            </div>                           
+                             <div class="form-group">
+                                <label>slug</label>
+                                <input type="text" name="slug" class="form-control" placeholder="Email"  value="<%= products.slug %>">
+                            </div>                           
+                             <div class="form-group">
+                                <label>description</label>
+                                <input type="text" name="description" class="form-control" placeholder="Email"  value="<%= products.description %>">
+                            </div>  
+
+                             <div class="form-group">
+                                <label>image</label>
+                                <input type="file" name="image" class="form-control" >
+                                <img src="/images/product/<%= products.image %>" style="width: 100px;height: 100px;"></img>
+                            </div>   
+
+                            <div class="form-group">
+                                <label>Category</label>                            
+                                <select name="category_id"  class="form-control">
+                                    <option value="">Select Category</option>
+                                    <% categories_list.forEach(function(row){ %>
+                                    <option value="<%= row.id %>"  <%= (row.id == products.category_id)? 'selected':'selected' %>><%= row.name %></option>
+                                    <% }) %>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Save</button>
+                            
+                        </form>
+                     
+                </div>
+                
+            </div>
+            
+        </div>
+       
+  </div>
+</div>
+
