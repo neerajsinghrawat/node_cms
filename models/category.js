@@ -13,6 +13,7 @@ module.exports = function(sequelize, DataTypes) {
           name: DataTypes.STRING,
           slug: DataTypes.STRING,
           description: DataTypes.STRING,
+          image: DataTypes.STRING,
           parent_id: {
               allowNull: true,
               type: DataTypes.INTEGER

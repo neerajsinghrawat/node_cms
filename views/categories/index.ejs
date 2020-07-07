@@ -13,17 +13,19 @@
                               <th>Slug</th>
                               <th>Description</th>
                               <th>Created</th>
+                              <th>action</th>
                             </tr>
                           </thead>
                           <tbody>
-                        <% for(var i=0; i < categories.length; i++) { %>
+                        <% categories.forEach(function(row){ %>
                             <tr>
-                            <th><%= categories[i].name %></th>
-                            <th><%= categories[i].slug %></th>
-                            <th><%= categories[i].description %></th>
-                            <th><%= categories[i].createdAt %></th>
+                            <th><%= row.name %></th>
+                            <th><%= row.slug %></th>
+                            <th><%= row.description %></th>
+                            <th><img src="/images/<%= row.image %>" style="width: 100px;height: 100px;"></img></th>
+                            <th><a href="/category/edit/<%= row.id %>">edit</a><a href="/category/delete/<%= row.id %>">delete</a></th>
                             </tr>
-                        <% } %>
+                        <% }) %>
                           </tbody>
                     </table>
                     

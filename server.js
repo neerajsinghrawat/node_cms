@@ -3,7 +3,6 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const session = require("express-session");
 
-
 const flash = require('connect-flash');
 //for custom layout 
 
@@ -36,11 +35,11 @@ app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true 
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
-
 // Requiring our routes
 require("./routes/users.js")(app);
 require("./routes/categories.js")(app);
 require("./routes/customers.js")(app);
+require("./routes/products.js")(app);
 //require("./routes/api-routes.js")(app);
 
 //
@@ -49,18 +48,12 @@ app.get('/', function(req, res) {
        res.send('Welcome to Passport with Sequelize and without HandleBars');
 });
 
-
-
-
-app.listen(PORT, function() {
-  console.log("==>Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
-});
 //
 //this will listen to and show all activities on our terminal to 
 //let us know what is happening in our app
 // Syncing our database and logging a message to the user upon success
-/*db.sequelize.sync().then(function() {
+db.sequelize.sync().then(function() {
     app.listen(PORT, function() {
       console.log("==>Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
     });
-  });**/
+  });
